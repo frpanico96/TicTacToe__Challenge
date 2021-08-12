@@ -23,7 +23,7 @@ namespace TicTacToe_Challenge
         {
             InitializeMatrix();
         }
-
+        //Initialize matrix creating boxes based on their position
         public void InitializeMatrix()
         {
             for (int i = 1; i <= (row * row); ++i)
@@ -47,6 +47,7 @@ namespace TicTacToe_Challenge
 
             }
         }
+        //Display the UX matrix
         public void DisplayMatrix()
         {
             ComposeMatrixUx();
@@ -57,6 +58,7 @@ namespace TicTacToe_Challenge
 
             Console.WriteLine("");
         }
+        //Compose the UX matrix
         public void ComposeMatrixUx()
         {
             for (int i = 0; i < matrixUx.Length; ++i)
@@ -73,6 +75,8 @@ namespace TicTacToe_Challenge
                 //Console.WriteLine("MatrixUx[{0}]: {1}", i, matrixUx[i]);
             }
         }
+        //Handle the inserted move
+        //Input is valid if: is an integer, is between 1 and 9 and the box is available
         public int MoveSelector(bool player1)
         {
             string player = player1 ? "Player 1" : "Player 2";
@@ -92,11 +96,14 @@ namespace TicTacToe_Challenge
             } while (result == 0);
             return result;
         }
+        //Applies the selected move
         public void ApplyMove(int field, bool isPlayerOne)
         {
             string ticToe = isPlayerOne ? "X" : "O";
             matrixUi[field - 1].ChangeInnerValue(ticToe);
         }
+        //Check if the matrix has a winning condition
+        //It uses column position of box and their row position within the column
         public bool checkWin(int field)
         {
             bool result = false;
@@ -332,6 +339,8 @@ namespace TicTacToe_Challenge
             }
             return result;
         }
+        //Check if the matrix has a tie condition
+        //It is a tie when all boxes are filled with X or O
         public bool CheckTie()
         {
             bool result = true;
@@ -345,10 +354,12 @@ namespace TicTacToe_Challenge
             }
             return result;
         }
+        //Check row position of the box within a column
         private string CheckPosition(int index)
         {
             return index / row == 0 ? "UPPER" : index / row == 1 ? "CENTRAL" : "LOWER";
         }
+        //check if adjacent box is equal
         private bool CheckAdjacentBox(int field, Position position)
         {
             switch (position)
@@ -373,6 +384,7 @@ namespace TicTacToe_Challenge
                     return false;
             }
         }
+        //get adjacent index
         private int AdjacentIndex(int index, Position position)
         {
             switch (position)
@@ -426,6 +438,7 @@ namespace TicTacToe_Challenge
                 }
                 //DisplayInnerBox();
             }
+            //Display the innerBox
             public void DisplayInnerBox()
             {
                 for (int i = 0; i < innerObj.GetLength(0); ++i)
@@ -440,10 +453,12 @@ namespace TicTacToe_Challenge
                     }
                 }
             }
+            //Change inner value
             public void ChangeInnerValue(string ticToe)
             {
                 innerObj[1, 1] = ticToe;
             }
+            //Get inner value
             public string GetInnerValue()
             {
                 return innerObj[1, 1];
