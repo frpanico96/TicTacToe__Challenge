@@ -6,13 +6,6 @@ namespace TicTacToe_Challenge
     {
         static void Main(string[] args)
         {
-            //1. Write/Read to select box to tic or toe --> Ok
-            //2. Change the value of the box with tic or toe --> Ok
-            //3. Need a player variable (bool true or false) that choose to display Player 1 or 2 and tic or toe --> Ok
-            //4. After change, refresh the console and use DisplayMatrix + MoveSelector
-            //5. Need a method CheckWin to check if one of the players won
-            //6. Input validations
-            //7. Comment everything
             Play();
         }
         public static void Play()
