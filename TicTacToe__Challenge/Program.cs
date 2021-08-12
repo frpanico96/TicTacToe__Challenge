@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace TicTacToe_Challenge
 {
@@ -13,7 +13,29 @@ namespace TicTacToe_Challenge
             //5. Need a method CheckWin to check if one of the players won
             //6. Input validations
             //7. Comment everything
-
+            Play();
+        }
+        public static void Play()
+        {
+            int playAgain;
+            do
+            {
+                Console.Write("Enter 1 to play again or enter any other key to stop playing");
+                if(int.TryParse(Console.Read(), out playAgain) && playAgain == 1)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Starting new game...");
+                    Console.Clear()
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Exiting game...");
+                }
+            }while(playAgain == 1);
+        }
+        public static void SingleGame()
+        {
             //variables declaration
             int selectedField;
             bool isPlayerOne = true;
@@ -47,8 +69,7 @@ namespace TicTacToe_Challenge
             {
                 winningPlayer = isPlayerOne ? "Player 1" : "Player 2";
                 Console.WriteLine($"{winningPlayer} won the game!");
-            }
-            Console.Read();
+            } 
         }
     }
 }
