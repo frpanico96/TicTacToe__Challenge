@@ -13,12 +13,13 @@ namespace TicTacToe_Challenge
             int playAgain;
             do
             {
+                SingleGame();
                 Console.Write("Enter 1 to play again or enter any other key to stop playing");
-                if(int.TryParse(Console.Read(), out playAgain) && playAgain == 1)
+                if(int.TryParse(Console.ReadLine(), out playAgain) && playAgain == 1)
                 {
                     Console.Clear();
                     Console.WriteLine("Starting new game...");
-                    Console.Clear()
+                    Console.Clear();
                 }
                 else
                 {
